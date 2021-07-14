@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
@@ -20,7 +21,7 @@ public class Utils {
 		return (Stage) ((Node) event.getSource()).getScene().getWindow();
 	}
 
-	public static Integer tryParsetoInt(String str) {
+	public static Integer tryParseToInt(String str) {
 		try {
 
 			return Integer.parseInt(str);
@@ -29,6 +30,15 @@ public class Utils {
 		}
 	}
 
+	public static Double tryParseToDouble(String str) {
+		try {
+
+			return Double.parseDouble(str);
+		} catch (NumberFormatException e) {
+			return null;
+		}
+	}
+	
 	public static <T> void formatTableColumnDate(TableColumn<T, Date> tableColumn, String format) {
 		tableColumn.setCellFactory(column -> {
 			TableCell<T, Date> cell = new TableCell<T, Date>() {
